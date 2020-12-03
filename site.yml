@@ -1,9 +1,9 @@
 ---
 
 # Apply common configuration to all hosts (only add SSH public key ftm)
-#- hosts: all
-#  roles:
-#  - common
+- hosts: all
+  roles:
+  - common
 
 # Remove 80 and 443 ports on Synology webserver
 #- hosts: nas

@@ -1,8 +1,15 @@
 ---
 # Apply common configuration to all hosts (only add SSH public key ftm)
 
-- name: Add my SSH key
-  authorized_key:
-    user: "{{ user }}"
-    state: present
-    key: "{{ user_pubkey }}"
+- name: Change user home directory rights to 755 (for Synology NAS)
+  file:
+    path: /volume1/homes/{{ ansible_user }}
+    state: directory
+    mode: '0755'
+  when: inventory_hostname in groups['nas']
+
+#- name: Add my SSH key
+#  authorized_key:
+#    user: "{{ user }}"
+#    state: present
+#    key: "{{ user_pubkey }}"
