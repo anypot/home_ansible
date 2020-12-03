@@ -1,6 +1,6 @@
 ---
 
-ups_name: ups
-nut_server_ip: 192.168.1.1
-nut_user: monuser
-nut_password: secret
+# As I use the same user/password everywhere
+ansible_user: USER
+ansible_ssh_pass: PASSWORD
+ansible_become_pass: PASSWORD
