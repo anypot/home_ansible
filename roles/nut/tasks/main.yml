@@ -1,0 +1,31 @@
+---
+# Configure NUT client
+
+- name: Get latest nut package
+  apt:
+    name: nut
+    state: latest
+
+- name: Edit /etc/nut/nut.conf
+  lineinfile: 
+    path: /etc/nut/nut.conf
+    regexp: '^MODE='
+    line: MODE=netclient
+
+- name: Edit /etc/nut/upsmon.conf
+  lineinfile:
+    path: /etc/nut/upsmon.conf
+    regexp: '^MONITOR'
+    insertafter: '^# MONITOR'
+    line: MONITOR {{ ups_name }}@{{ nut_server_ip }} 1 {{ nut_user }} {{ nut_password }} slave
+
+- name: Start monitoring
+  service: name=nut-client state=started enabled=yes
+
+- name: Check UPS status
+  shell: upsc {{ ups_name }}@{{ nut_server_ip }}
+  register: ups_status
+
+- name: UPS STATUS
+  debug:
+    var: ups_status.stdout_lines

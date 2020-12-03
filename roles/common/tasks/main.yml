@@ -1,0 +1,8 @@
+---
+# Apply common configuration to all hosts (only add SSH public key ftm)
+
+- name: Add my SSH key
+  authorized_key:
+    user: "{{ user }}"
+    state: present
+    key: "{{ user_pubkey }}"

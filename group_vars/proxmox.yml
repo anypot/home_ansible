@@ -1,0 +1,4 @@
+---
+
+ansible_user: USER
+ansible_port: PORT
