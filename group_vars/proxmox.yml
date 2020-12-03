@@ -1,4 +1,6 @@
 ---
 
 ansible_user: USER
-ansible_port: PORT
+ansible_ssh_pass: PASSWORD
+ansible_become_method: su
+ansible_become_pass: PASSWORD
