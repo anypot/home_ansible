@@ -1,0 +1,7 @@
+---
+# Restart nut-client if any change in configuration files
+
+- name: restart nut-client
+  service:
+    name: nut-client
+    state: restarted

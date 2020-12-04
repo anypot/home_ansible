@@ -12,6 +12,7 @@
     backup: yes
     regexp: '^MODE='
     line: MODE=netclient
+  notify: restart nut-client
 
 - name: Edit /etc/nut/upsmon.conf
   lineinfile:
@@ -20,9 +21,13 @@
     regexp: '^MONITOR'
     insertafter: '^# MONITOR'
     line: MONITOR {{ ups_name }}@{{ nut_server_ip }} 1 {{ nut_user }} {{ nut_password }} slave
+  notify: restart nut-client
 
-- name: Start monitoring
-  service: name=nut-client state=started enabled=yes
+- name: Ensure nut monitoring is running
+  service:
+    name: nut-client
+    state: started
+    enabled: yes
 
 - name: Check UPS status
   shell: upsc {{ ups_name }}@{{ nut_server_ip }}
