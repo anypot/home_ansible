@@ -7,6 +7,7 @@
 
 # Remove ports 80 and 443 on Synology webserver
 - hosts: nas
+  become: yes
   roles:
   - dsm_nginx
 
