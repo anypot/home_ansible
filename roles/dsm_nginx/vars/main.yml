@@ -1,0 +1,4 @@
+---
+
+new_80_port: "{{ lookup('env','NEW_80_PORT') }}"
+new_443_port: "{{ lookup('env','NEW_443_PORT') }}"

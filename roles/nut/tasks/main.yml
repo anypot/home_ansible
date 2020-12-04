@@ -7,14 +7,16 @@
     state: latest
 
 - name: Edit /etc/nut/nut.conf
-  lineinfile: 
+  lineinfile:
     path: /etc/nut/nut.conf
+    backup: yes
     regexp: '^MODE='
     line: MODE=netclient
 
 - name: Edit /etc/nut/upsmon.conf
   lineinfile:
     path: /etc/nut/upsmon.conf
+    backup: yes
     regexp: '^MONITOR'
     insertafter: '^# MONITOR'
     line: MONITOR {{ ups_name }}@{{ nut_server_ip }} 1 {{ nut_user }} {{ nut_password }} slave

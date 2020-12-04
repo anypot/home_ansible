@@ -5,10 +5,10 @@
   roles:
   - common
 
-# Remove 80 and 443 ports on Synology webserver
-#- hosts: nas
-#  roles:
-#  - dsm_nginx
+# Remove ports 80 and 443 on Synology webserver
+- hosts: nas
+  roles:
+  - dsm_nginx
 
 # Configure NUT client on Proxmox cluster
 - hosts: proxmox
