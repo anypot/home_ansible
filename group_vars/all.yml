@@ -1,6 +1,6 @@
 ---
 
 # As I use the same user/password everywhere
-ansible_user: USER
-ansible_ssh_pass: PASSWORD
-ansible_become_pass: PASSWORD
+ansible_user: "{{ lookup('env','ANSIBLE_USER') }}"
+ansible_ssh_pass: "{{ lookup('env','ANSIBLE_SSH_PASS') }}"
+ansible_become_pass: "{{ lookup('env','ANSIBLE_BECOME_PASS') }}"

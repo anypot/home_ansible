@@ -1,0 +1,3 @@
+---
+
+pubkey_file: "{{ lookup('env','PUBKEY_FILE') }}"

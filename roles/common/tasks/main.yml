@@ -8,8 +8,8 @@
     mode: '0755'
   when: inventory_hostname in groups['nas']
 
-#- name: Add my SSH key
-#  authorized_key:
-#    user: "{{ user }}"
-#    state: present
-#    key: "{{ user_pubkey }}"
+- name: Add my SSH key
+  ansible.posix.authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: "{{ lookup('file', pubkey_file) }}"
