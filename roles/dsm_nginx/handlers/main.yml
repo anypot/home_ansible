@@ -2,4 +2,4 @@
 # Restart nginx if any change in configuration files
 
 - name: restart nginx
-  shell: synoservicecfg --restart nginx
+  shell: synoservicectl --restart nginx
