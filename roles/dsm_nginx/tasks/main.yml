@@ -8,10 +8,10 @@
     regexp: "{{ item.old }}"
     replace: "{{ item.new }}"
   with_items:
-  - { path: '/usr/syno/share/nginx/server.mustache', old: '80', new: new_80_port}
-  - { path: '/usr/syno/share/nginx/server.mustache', old: '443', new: new_443_port}
-  - { path: '/usr/syno/share/nginx/DSM.mustache', old: '80', new: new_80_port}
-  - { path: '/usr/syno/share/nginx/DSM.mustache', old: '443', new: new_443_port}
-  - { path: '/usr/syno/share/nginx/WWWService.mustache', old: '80', new: new_80_port}
-  - { path: '/usr/syno/share/nginx/WWWService.mustache', old: '443', new: new_443_port}
+  - { path: '/usr/syno/share/nginx/server.mustache', old: '80', new: "{{ new_80_port }}" }
+  - { path: '/usr/syno/share/nginx/server.mustache', old: '443', new: "{{ new_443_port }}" }
+  - { path: '/usr/syno/share/nginx/DSM.mustache', old: '80', new: "{{ new_80_port }}" }
+  - { path: '/usr/syno/share/nginx/DSM.mustache', old: '443', new: "{{ new_443_port }}" }
+  - { path: '/usr/syno/share/nginx/WWWService.mustache', old: '80', new: "{{ new_80_port }}" }
+  - { path: '/usr/syno/share/nginx/WWWService.mustache', old: '443', new: "{{ new_443_port }}" }
   notify: restart nginx
