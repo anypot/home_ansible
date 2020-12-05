@@ -15,4 +15,5 @@
 - hosts: proxmox
   become: yes
   roles:
+  - pve
   - nut

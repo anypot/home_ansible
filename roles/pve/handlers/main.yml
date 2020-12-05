@@ -1,0 +1,7 @@
+---
+# Restart Proxmox web service if any change in configuration files
+
+- name: restart pveproxy
+  service:
+    name: pveproxy
+    state: restarted
