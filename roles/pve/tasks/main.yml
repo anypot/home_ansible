@@ -23,3 +23,11 @@
     before: "No valid subscription"
     replace: "void"
   notify: restart pveproxy
+
+- name: Disable root SSH access with password
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    backup: yes
+    regexp: '^PermitRootLogin'
+    line: PermitRootLogin without-password
+  notify: restart sshd
