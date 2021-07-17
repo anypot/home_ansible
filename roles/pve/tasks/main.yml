@@ -12,7 +12,7 @@
   lineinfile:
     path: /etc/apt/sources.list
     backup: yes
-    line: deb http://download.proxmox.com/debian/pve buster pve-no-subscription
+    line: deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 
 - name: Remove the annoying subscription popup
   replace:
